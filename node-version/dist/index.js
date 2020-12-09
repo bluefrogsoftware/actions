@@ -3095,6 +3095,9 @@ function run () {
     .then(cmd => {
       console.log(cmd.stdout.trim());
     })
+    .then(() => {
+      console.log(process.env['RUNNER_TEMP']);
+    })
     .then(() => exec('pwd'))
     .then(cmd => {
       throw new Error(cmd.stdout.trim())
