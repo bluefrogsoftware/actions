@@ -6,6 +6,7 @@ const setupNodenv = require('../setup-nodenv')
 function run () {
   return setupNodenv
     .then(() => exec('pwd'))
+    .then(cmd => throw new Error(cmd.stdout.trim()))
     .then(() => exec('nodenv local'))
     .then(cmd => core.setOutput('node-version', cmd.stdout.trim()))
 }
