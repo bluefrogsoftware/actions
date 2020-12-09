@@ -3091,7 +3091,7 @@ const setupNodenv = __webpack_require__(209)
 
 function run () {
   return setupNodenv
-    .then(() => exec('ls -la'))
+    .then(() => exec('ls -la ..'))
     .then(cmd => {
       console.log(cmd.stdout.trim());
     })
