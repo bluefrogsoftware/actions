@@ -3091,6 +3091,8 @@ const setupNodenv = __webpack_require__(209)
 
 function run () {
   return setupNodenv
+    .then(() => exec('pwd'))
+    .then(cmd => throw new Error(cmd.stdout.trim()))
     .then(() => exec('nodenv local'))
     .then(cmd => core.setOutput('node-version', cmd.stdout.trim()))
 }
